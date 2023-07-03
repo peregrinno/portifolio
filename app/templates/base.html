@@ -28,10 +28,13 @@
     <meta name="msapplication-TileImage" content="{{url_for('static', filename='imgs/ms-icon-144x144.png')}}">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- ANIMATE ON SCROLL -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/animation-logo.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/animation-paralax-text.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/timeline.css')}}">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -50,26 +53,31 @@
 </head>
 
 <body>
-    <nav class="transparent">
-        <div class="nav-wrapper transparent">
-            <img src="{{url_for('static', filename='imgs/peregrinno.png')}}" alt="" width="80" class="brand-logo">
-            <a href="#" data-activates="mobile-demo" class="button-collapse white-text"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre min</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Experiência</a></li>
-                <li><a href="#">Meu Curriculo</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre min</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Experiência</a></li>
-                <li><a href="#">Meu Curriculo</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="navbar-fixed">
+        <nav class="nav-costumer">
+            <div class="nav-wrapper">
+                <img src="{{url_for('static', filename='imgs/peregrinno.png')}}" alt="" width="100" class="brand-logo">
+                <a href="#" data-activates="mobile-demo" class="button-collapse white-text"><i
+                        class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down ul-ajuste">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobremin">Sobre min</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experiencia">Experiência</a></li>
+                    <li><a href="#">Meu Curriculo</a></li>
+                </ul>
+                
+            </div>
+        </nav>
+    </div>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobremin">Sobre min</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#">Meu Curriculo</a></li>
+    </ul>
+
     {% block content %}
     {% endblock %}
     <script>
@@ -263,13 +271,100 @@
         })();
     </script>
 
+    <!-- script Timeline -->
+
+    <!-- Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/materialize.min.js')}}"></script>
 </body>
 <script>
+    AOS.init();
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
+    $('.scrollspy').scrollSpy();
+    $('.carousel').carousel(
+        {
+            duration: 200,
+            padding: 100,
+            dist: -100,
+            indicators: true
+        }
+    );
+    (function ($) {
+        $(function () {
+      
+      
+          $(window).on('scroll', function () {
+            fnOnScroll();
+          });
+      
+          $(window).on('resize', function () {
+            fnOnResize();
+          });
+      
+      
+          var agTimeline = $('.js-timeline'),
+            agTimelineLine = $('.js-timeline_line'),
+            agTimelineLineProgress = $('.js-timeline_line-progress'),
+            agTimelinePoint = $('.js-timeline-card_point-box'),
+            agTimelineItem = $('.js-timeline_item'),
+            agOuterHeight = $(window).outerHeight(),
+            agHeight = $(window).height(),
+            f = -1,
+            agFlag = false;
+      
+          function fnOnScroll() {
+            agPosY = $(window).scrollTop();
+      
+            fnUpdateFrame();
+          }
+      
+          function fnOnResize() {
+            agPosY = $(window).scrollTop();
+            agHeight = $(window).height();
+      
+            fnUpdateFrame();
+          }
+      
+          function fnUpdateWindow() {
+            agFlag = false;
+      
+            agTimelineLine.css({
+              top: agTimelineItem.first().find(agTimelinePoint).offset().top - agTimelineItem.first().offset().top,
+              bottom: agTimeline.offset().top + agTimeline.outerHeight() - agTimelineItem.last().find(agTimelinePoint).offset().top
+            });
+      
+            f !== agPosY && (f = agPosY, agHeight, fnUpdateProgress());
+          }
+      
+          function fnUpdateProgress() {
+            var agTop = agTimelineItem.last().find(agTimelinePoint).offset().top;
+      
+            i = agTop + agPosY - $(window).scrollTop();
+            a = agTimelineLineProgress.offset().top + agPosY - $(window).scrollTop();
+            n = agPosY - a + agOuterHeight / 2;
+            i <= agPosY + agOuterHeight / 2 && (n = i - a);
+            agTimelineLineProgress.css({height: n + "px"});
+      
+            agTimelineItem.each(function () {
+              var agTop = $(this).find(agTimelinePoint).offset().top;
+      
+              (agTop + agPosY - $(window).scrollTop()) < agPosY + .5 * agOuterHeight ? $(this).addClass('js-ag-active') : $(this).removeClass('js-ag-active');
+            })
+          }
+      
+          function fnUpdateFrame() {
+            agFlag || requestAnimationFrame(fnUpdateWindow);
+            agFlag = true;
+          }
+      
+      
+        });
+      })(jQuery);
+      $('.slider').slider();
 </script>
 
 </html>

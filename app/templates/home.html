@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row banner">
+<div id="home" class="row banner scrollspy">
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
@@ -153,25 +153,287 @@
 </div>
 <div class="parallax-container">
     <div class="parallax">
-        <svg>
-            <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-                Home
-            </text>
-        </svg>
         <img src="{{url_for('static', filename='imgs/coffe-mac.avif')}}" alt="">
     </div>
 </div>
-<div class="row">
-    <br>
-    <br>
+<div id="sobremin" class="row scrollspy containers-main1">
+    <svg>
+        <text data-aos="fade-down" x="50%" y="50%" dy=".35em" text-anchor="middle">
+            Sobre min
+        </text>
+    </svg>
     <div class="container white-text">
-        <div class="col s12 m7">
-            <h3>Olá! Me chamo Luan Araújo</h3>
+        <div data-aos="fade-right" class="col s12 m7">
+            <h4>Olá! Me chamo Luan Araújo.</h4>
+            <p>Natural do Pará, sou desenvolvedor de software a 7 anos, com grande experiência em Python, PostgreSQL.
+                Minha especialidade é analise de dados com visualização para Web usando ferramentas como Plotly e Pandas
+                com o framework Flask.</p>
+            <p>A 2 anos tenho aprofundado meus conhecimentos em PowerBI, R e outros bancos de dados como MySQL e
+                MongoDB.</p>
+            <p>Atualmente, trabalho como desenvolvedor fullstack & analista de BI na Prefeitura Municipal de Caruaru,
+                coordeno um time de desenvolvimento e BI, juntos desenvolvemos soluções externas e internas para a
+                Prefeitura.</p>
         </div>
-        <div class="col s12 m5">
-            <img class="responsive-img" src="{{url_for('static', filename='imgs/photo-profile.png')}}">
+        <div data-aos="fade-up" class="col s12 m5 center">
+            <img class="responsive-img " src="{{url_for('static', filename='imgs/photo-profile.png')}}">
         </div>
     </div>
 </div>
+<div class="parallax-container">
+    <div class="parallax">
+        <img src="{{url_for('static', filename='imgs/mind-set-skills.jpg')}}" alt="">
+    </div>
+</div>
+<div id="skills" class="row scrollspy containers-main2">
+    <svg>
+        <text data-aos="fade-down" x="50%" y="50%" dy=".35em" text-anchor="middle">
+            Skills
+        </text>
+    </svg>
+    <div data-aos="fade-up" class="col s12 center">
+        <div class="carousel">
+            <a class="carousel-item dark-text" href="#!"><img
+                    src="{{ url_for('static', filename='imgs/skills/python.png')}}">
+                <h6 class="dark-text">Python</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/power_bi.png')}}">
+                <h6 class="dark-text">Power BI</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img
+                    src="{{ url_for('static', filename='imgs/skills/pandas-logo.png')}}">
+                <h6 class="dark-text">Pandas</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img class="ajuste-img"
+                    src="{{ url_for('static', filename='imgs/skills/plotly.png')}}">
+                <h6 class="dark-text">Plotly</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/excel-logo.png')}}">
+                <h6 class="dark-text">Excel</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img
+                    src="{{ url_for('static', filename='imgs/skills/postgresql.svg.png')}}">
+                <h6 class="dark-text">PostgreSQL</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/my-sql.png')}}">
+                <h6 class="dark-text">MySQL</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/html5.png')}}">
+                <h6 class="dark-text">HTML5</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/css-3.png')}}">
+                <h6 class="dark-text">CSS3</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/JavaScript.png')}}">
+                <h6 class="dark-text">JavaScript</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/flask.svg')}}">
+                <h6 class="dark-text">Flask</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/git.png')}}">
+                <h6 class="dark-text">Git</h6>
+            </a>
+            <a class="carousel-item" href="#!"><img src="{{ url_for('static', filename='imgs/skills/github.png')}}">
+                <h6 class="dark-text">Github</h6>
+            </a>
+        </div>
+    </div>
+
+</div>
+<div class="parallax-container">
+    <div class="parallax">
+        <img src="{{url_for('static', filename='imgs/experiencia.webp')}}" alt="">
+    </div>
+</div>
+<div id="experiencia" class="row scrollspy containers-main1">
+    <div class="ag-timeline-block">
+        <div class="ag-timeline_title-box">
+            <div class="ag-timeline_tagline">Timeline</div>
+            <div class="ag-timeline_title">Experiência</div>
+        </div>
+        <section class="ag-section">
+            <div class="ag-format-container">
+                <div class="js-timeline ag-timeline">
+                    <div class="js-timeline_line ag-timeline_line">
+                        <div class="js-timeline_line-progress ag-timeline_line-progress"></div>
+                    </div>
+                    <div class="ag-timeline_list">
+                        <div class="js-timeline_item ag-timeline_item">
+                            <div class="ag-timeline-card_box">
+                                <div class="js-timeline-card_point-box ag-timeline-card_point-box">
+                                    <div class="ag-timeline-card_point">2023</div>
+                                </div>
+                                <div class="ag-timeline-card_meta-box">
+                                    <div class="ag-timeline-card_meta">Prefeitura Municipal de Caruaru</div>
+                                </div>
+                            </div>
+                            <div class="ag-timeline-card_item">
+                                <div class="ag-timeline-card_inner">
+                                    <div class="ag-timeline-card_img-box">
+                                        <img src="{{url_for('static', filename='imgs/experiences/pmc.jpg')}}"
+                                            class="ag-timeline-card_img responsive-img" width="640" height="360" />
+                                    </div>
+                                    <div class="ag-timeline-card_info">
+                                        <div class="ag-timeline-card_title">Prefeitura Municipal de Caruaru</div>
+                                        <div class="ag-timeline-card_desc">
+                                            Desenvolvimento de soluções web usando Python ou PHP, através de frameworks
+                                            Flask ou Laravel, acompanhamento de projetos de ponta a ponta, ou seja, da
+                                            concepção da ideia a ambiente final em produção. Gerenciamento de time e
+                                            documentação de sistema. Gerenciamento de Banco de Dados. auxílio na
+                                            modelagem de dados e BI.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ag-timeline-card_arrow"></div>
+                            </div>
+                        </div>
+
+                        <div class="js-timeline_item ag-timeline_item">
+                            <div class="ag-timeline-card_box">
+                                <div class="ag-timeline-card_meta-box">
+                                    <div class="ag-timeline-card_meta">UNIQUE Construtora</div>
+                                </div>
+                                <div class="js-timeline-card_point-box ag-timeline-card_point-box">
+                                    <div class="ag-timeline-card_point">2022</div>
+                                </div>
+                            </div>
+                            <div class="ag-timeline-card_item">
+                                <div class="ag-timeline-card_inner">
+                                    <div class="ag-timeline-card_img-box">
+                                        <img src="{{url_for('static', filename='imgs/experiences/unique.png')}}"
+                                            class="ag-timeline-card_img" width="640" height="360" alt="" />
+                                    </div>
+                                    <div class="ag-timeline-card_info">
+                                        <div class="ag-timeline-card_title">UNIQUE Construtora</div>
+                                        <div class="ag-timeline-card_desc">
+                                            Experiência maravilhosa, todos os colegas foram extremamente significantes
+                                            para minha permanência, um mercado que abre portas pra min como
+                                            profissional. Construi 9 Dashboards de business Intelligence que atingiam
+                                            diversos setores da empresa, tais como: Comercial, Suprimentos, Obras,
+                                            Financeiro, Conciliação e Inadimplência. Junto a isso, pude ter a
+                                            oportunidade de participar da implementação do software Bitrix24, solução
+                                            CRM que a empresa usa para gerenciamento de pessoas.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ag-timeline-card_arrow"></div>
+                            </div>
+                        </div>
+                        <div class="js-timeline_item ag-timeline_item">
+                            <div class="ag-timeline-card_box">
+                                <div class="js-timeline-card_point-box ag-timeline-card_point-box">
+                                    <div class="ag-timeline-card_point">2021</div>
+                                </div>
+                                <div class="ag-timeline-card_meta-box">
+                                    <div class="ag-timeline-card_meta">Universidade de Pernambuco</div>
+                                </div>
+                            </div>
+                            <div class="ag-timeline-card_item">
+                                <div class="ag-timeline-card_inner">
+                                    <div class="ag-timeline-card_img-box">
+                                        <img src="{{url_for('static', filename='imgs/experiences/upe.jpg')}}" alt
+                                            class="ag-timeline-card_img" width="640" height="360" alt="" />
+                                    </div>
+                                    <div class="ag-timeline-card_info">
+                                        <div class="ag-timeline-card_title">Universidade de Pernambuco</div>
+                                        <div class="ag-timeline-card_desc">
+                                            Participei de projetos voluntariados na Universidade durante a graduação, os
+                                            projetos envolviam o evento Semana Universitária da UPE (SUPER) criando site
+                                            do evento usando Wordpress e Elementor. Juntamente a isso, participei do
+                                            PETGOV - BI projeto de extensão que consistia em estudar a gestão de uma
+                                            empresa do ramo textil e criar indicadores de performance para a mesma
+                                            usando PowerBI, R e Excel.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ag-timeline-card_arrow"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="js-timeline_item ag-timeline_item">
+                            <div class="ag-timeline-card_box">
+                                <div class="ag-timeline-card_meta-box">
+                                    <div class="ag-timeline-card_meta">Universidade Federal do Pará</div>
+                                </div>
+                                <div class="js-timeline-card_point-box ag-timeline-card_point-box">
+                                    <div class="ag-timeline-card_point">2016</div>
+                                </div>
+                            </div>
+                            <div class="ag-timeline-card_item">
+                                <div class="ag-timeline-card_inner">
+                                    <div class="ag-timeline-card_img-box">
+                                        <img src="{{url_for('static', filename='imgs/experiences/ufpa.webp')}}"
+                                            class="ag-timeline-card_img" width="640" height="360" alt="" />
+                                    </div>
+                                    <div class="ag-timeline-card_info">
+                                        <div class="ag-timeline-card_title">Universidade Federal do Pará</div>
+                                        <!-- 
+<div class="chip">
+                                            <img src="{{url_for('static', filename='imgs/skills/html5.png')}}"
+                                                alt="HTML5">
+                                            HTML5
+                                        </div>
+                                        -->
+                                        <div class="ag-timeline-card_desc">
+                                            Criação de páginas locais para funcionar como mural para computadores de
+                                            laboratório para o Instituto de Ciências Humanas e Naturais. Manutenção de
+                                            computadores e redes de computador.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ag-timeline-card_arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax">
+        <img src="{{url_for('static', filename='imgs/portifolio.webp')}}" alt="">
+    </div>
+</div>
+<div id="portfolio" class="row scrollspy containers-main2">
+    <svg>
+        <text data-aos="fade-down" x="50%" y="50%" dy=".35em" text-anchor="middle">
+            Portifólio
+        </text>
+    </svg>
+    <div class="slider">
+        <ul class="slides">
+          <li>
+            <img src="{{url_for('static', filename='imgs/portifolio/dash-pizza.png')}}"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>DASHBOARD de Bootcamp</h3>
+              <h5 class="light grey-text text-lighten-3">Treino de Painel com base de uma loja de Pizzas</h5>
+            </div>
+          </li>
+          <li>
+            <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
+            <div class="caption left-align">
+              <h3>Left Aligned Caption</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
+            <div class="caption right-align">
+              <h3>Right Aligned Caption</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>This is our big Tagline!</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+        </ul>
+      </div>
+</div>
+
 
 {% endblock %}
