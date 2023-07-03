@@ -66,7 +66,7 @@ html {
   background-color: #2e2e2e65;
   backdrop-filter: blur(1.5rem);
   box-shadow: none;
-  min-height: 12vh;
+  min-height: 5vh;
 }
 
 /* Firefox */
@@ -137,4 +137,8 @@ html {
 
 .ajuste-img {
   margin-top: 65px;
+}
+
+.filtro-imagem {
+  backdrop-filter: #3333331f;
 }

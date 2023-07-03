@@ -247,8 +247,12 @@
 <div id="experiencia" class="row scrollspy containers-main1">
     <div class="ag-timeline-block">
         <div class="ag-timeline_title-box">
-            <div class="ag-timeline_tagline">Timeline</div>
-            <div class="ag-timeline_title">Experiência</div>
+            <div data-aos="fade-down" class="ag-timeline_tagline"><svg>
+                    <text data-aos="fade-down" x="50%" y="50%" dy=".35em" text-anchor="middle">
+                        Experiência
+                    </text>
+                </svg></div>
+            <div data-aos="fade-up" class="ag-timeline_title">Timeline</div>
         </div>
         <section class="ag-section">
             <div class="ag-format-container">
@@ -395,44 +399,64 @@
         <img src="{{url_for('static', filename='imgs/portifolio.webp')}}" alt="">
     </div>
 </div>
-<div id="portfolio" class="row scrollspy containers-main2">
+<div id="portifolio" class="row scrollspy containers-main2">
     <svg>
         <text data-aos="fade-down" x="50%" y="50%" dy=".35em" text-anchor="middle">
             Portifólio
         </text>
     </svg>
-    <div class="slider">
-        <ul class="slides">
-          <li>
-            <img src="{{url_for('static', filename='imgs/portifolio/dash-pizza.png')}}"> <!-- random image -->
-            <div class="caption center-align">
-              <h3>DASHBOARD de Bootcamp</h3>
-              <h5 class="light grey-text text-lighten-3">Treino de Painel com base de uma loja de Pizzas</h5>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card z-depth-4">
+                <div class="card-image">
+                    <img class="materialboxed filtro-imagem"
+                        src="{{url_for('static', filename='imgs/portifolio/dash-pizza.png')}}">
+                    <span class="card-title">Dashboard de vendas</span>
+                </div>
+                <div class="card-content">
+                    <p>Painel gerenciavel que fez parte da atividade PETGOV-BI.</p>
+                </div>
             </div>
-          </li>
-          <li>
-            <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
-            <div class="caption left-align">
-              <h3>Left Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+        <div class="col s12 m6">
+            <div class="card z-depth-4">
+                <div class="card-image">
+                    <img class="materialboxed filtro-imagem"
+                        src="{{url_for('static', filename='imgs/portifolio/dash-lava-mais.gif')}}">
+                    <span class="card-title">Dashboard de Custos</span>
+                </div>
+                <div class="card-content">
+                    <p>Painel de gerenciamento da lavanderia LAVA MAIS, projeto final da atividade PETGOV-BI</p>
+                </div>
             </div>
-          </li>
-          <li>
-            <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
-            <div class="caption right-align">
-              <h3>Right Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card z-depth-4">
+                <div class="card-image">
+                    <img class="materialboxed filtro-imagem"
+                        src="{{url_for('static', filename='imgs/portifolio/uq-persona-do-cliente.gif')}}">
+                    <span class="card-title">Dashboard Perfil de cliente</span>
+                </div>
+                <div class="card-content">
+                    <p>Dashboard de persona do cliente.</p>
+                </div>
             </div>
-          </li>
-          <li>
-            <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
-            <div class="caption center-align">
-              <h3>This is our big Tagline!</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+        <div class="col s12 m4">
+            <div class="card z-depth-4">
+                <div class="card-image">
+                    <img class="materialboxed filtro-imagem"
+                        src="{{url_for('static', filename='imgs/portifolio/fala-caruaru.gif')}}">
+                    <span class="card-title">Portal "Fala Caruaru"</span>
+                </div>
+                <div class="card-content">
+                    <p>Site feito para consulta pública da Prefeitura de Caruaru.</p>
+                </div>
             </div>
-          </li>
-        </ul>
-      </div>
+        </div>
+    </div>
 </div>
 
 
