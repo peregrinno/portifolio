@@ -113,7 +113,7 @@ html {
 
 .containers-main1 {
   background-color: #2e2e2e;
-
+  min-height: 40vh;
   font-weight: 200;
   text-align: justify;
   margin-bottom: 0 !important; 
@@ -141,4 +141,12 @@ html {
 
 .filtro-imagem {
   backdrop-filter: #3333331f;
+}
+
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }

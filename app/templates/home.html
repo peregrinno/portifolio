@@ -409,7 +409,7 @@
         <div class="col s12 m6">
             <div class="card z-depth-4">
                 <div class="card-image">
-                    <img class="materialboxed filtro-imagem"
+                    <img class="materialboxed filtro-imagem portifolio"
                         src="{{url_for('static', filename='imgs/portifolio/dash-pizza.png')}}">
                     <span class="card-title">Dashboard de vendas</span>
                 </div>
@@ -421,7 +421,7 @@
         <div class="col s12 m6">
             <div class="card z-depth-4">
                 <div class="card-image">
-                    <img class="materialboxed filtro-imagem"
+                    <img class="materialboxed filtro-imagem portifolio"
                         src="{{url_for('static', filename='imgs/portifolio/dash-lava-mais.gif')}}">
                     <span class="card-title">Dashboard de Custos</span>
                 </div>
@@ -435,7 +435,7 @@
         <div class="col s12 m4">
             <div class="card z-depth-4">
                 <div class="card-image">
-                    <img class="materialboxed filtro-imagem"
+                    <img class="materialboxed filtro-imagem portifolio"
                         src="{{url_for('static', filename='imgs/portifolio/uq-persona-do-cliente.gif')}}">
                     <span class="card-title">Dashboard Perfil de cliente</span>
                 </div>
@@ -447,7 +447,7 @@
         <div class="col s12 m4">
             <div class="card z-depth-4">
                 <div class="card-image">
-                    <img class="materialboxed filtro-imagem"
+                    <img class="materialboxed filtro-imagem portifolio"
                         src="{{url_for('static', filename='imgs/portifolio/fala-caruaru.gif')}}">
                     <span class="card-title">Portal "Fala Caruaru"</span>
                 </div>
@@ -456,8 +456,81 @@
                 </div>
             </div>
         </div>
+        <div class="col s12 m4">
+            <div class="card z-depth-4">
+                <div class="card-image">
+                    <video class="responsive-video" controls>
+                        <source src="{{url_for('static', filename='imgs/portifolio/cgn.mp4')}}" type="video/mp4">
+                    </video>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Programa Caruaru Ganha com a Nota</span>
+                    <p>O CGN é um sistema de sorteio de notas fiscais que está em desenvolvimento onde os cidadãos de
+                        Caruaru irão concorrer a prêmios conforme declaram.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card z-depth-4">
+                <div class="card-image">
+                    <img class="materialboxed filtro-imagem portifolio"
+                        src="{{url_for('static', filename='imgs/portifolio/soliconsef.png')}}">
+                    <span class="card-title">Sistema SoliCONSEF</span>
+                </div>
+                <div class="card-content">
+                    <p>Solução para submissão de solicitações das secretarias de Caruaru para o conselho financeiro da Prefeitura.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card z-depth-4">
+                <div class="card-image">
+                    <img class="materialboxed filtro-imagem portifolio"
+                        src="{{url_for('static', filename='imgs/portifolio/cdc.png')}}">
+                    <span class="card-title">Cartório Digita de processos de Caruaru</span>
+                </div>
+                <div class="card-content">
+                    <p>Solução para processos de cartório de Caruaru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax">
+        <img src="{{url_for('static', filename='imgs/coffe-mac.avif')}}" alt="">
     </div>
 </div>
 
+<div id="curriculo" class="row scrollspy containers-main1" height="500">
+    <svg>
+        <text data-aos="fade-down" x="50%" y="50%" dy=".35em" text-anchor="middle">
+            Meu Currículo
+        </text>
+    </svg>
+    <div class="container white-text">
+        <div data-aos="fade-right" class="col s12 m7 valign-wrapper">
+            <h4>Um clique, uma oportunidade.</h4>
+        </div>
+        <div data-aos="fade-up" class="col s12 m5 center">
+            <a class="waves-effect btn-large #f5f5f5 grey lighten-4  black-text text-#000000" href="{{url_for('static', filename='docs/Curriculo.pdf')}}" target="_blank"><i class="material-icons right">file_download</i>Baixar meu currículo</a>
+        </div>
+    </div>
+</div>
+<div id="loader" class="preloader-wrapper active">
+    <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+            <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+            <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

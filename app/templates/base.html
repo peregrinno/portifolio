@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/animation-logo.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/animation-paralax-text.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/timeline.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/curriculo.css')}}">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -42,14 +43,7 @@
     <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/materialize.css')}}"
         media="screen,projection" />
 
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.22/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.22/dist/js/uikit-icons.min.js"></script>
-
-    <!-- Animação Banner JS -->
-    <script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js"></script>
-    <script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js"></script>
-    <script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
+    <script src="https://kit.fontawesome.com/cd0eb3102d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -65,7 +59,7 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#experiencia">Experiência</a></li>
                     <li><a href="#portifolio">Portifolio</a></li>
-                    <li><a href="#">Meu Curriculo</a></li>
+                    <li><a href="#curriculo">Meu Curriculo</a></li>
                 </ul>
             </div>
         </nav>
@@ -76,202 +70,12 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experiencia">Experiência</a></li>
         <li><a href="#portifolio">Portifolio</a></li>
-        <li><a href="#">Meu Curriculo</a></li>
+        <li><a href="#curriculo">Meu Curriculo</a></li>
     </ul>
 
 
     {% block content %}
     {% endblock %}
-    <script>
-
-        (function () {
-
-            var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
-
-            // Main
-            initHeader();
-            initAnimation();
-            addListeners();
-
-            function initHeader() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                target = { x: width / 2, y: height / 2 };
-
-                largeHeader = document.getElementById('large-header');
-                largeHeader.style.height = height + 'px';
-
-                canvas = document.getElementById('demo-canvas');
-                canvas.width = width;
-                canvas.height = height;
-                ctx = canvas.getContext('2d');
-
-                // create points
-                points = [];
-                for (var x = 0; x < width; x = x + width / 20) {
-                    for (var y = 0; y < height; y = y + height / 20) {
-                        var px = x + Math.random() * width / 20;
-                        var py = y + Math.random() * height / 20;
-                        var p = { x: px, originX: px, y: py, originY: py };
-                        points.push(p);
-                    }
-                }
-
-                // for each point find the 5 closest points
-                for (var i = 0; i < points.length; i++) {
-                    var closest = [];
-                    var p1 = points[i];
-                    for (var j = 0; j < points.length; j++) {
-                        var p2 = points[j]
-                        if (!(p1 == p2)) {
-                            var placed = false;
-                            for (var k = 0; k < 5; k++) {
-                                if (!placed) {
-                                    if (closest[k] == undefined) {
-                                        closest[k] = p2;
-                                        placed = true;
-                                    }
-                                }
-                            }
-
-                            for (var k = 0; k < 5; k++) {
-                                if (!placed) {
-                                    if (getDistance(p1, p2) < getDistance(p1, closest[k])) {
-                                        closest[k] = p2;
-                                        placed = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    p1.closest = closest;
-                }
-
-                // assign a circle to each point
-                for (var i in points) {
-                    var c = new Circle(points[i], 2 + Math.random() * 2, 'rgba(255,255,255,0.3)');
-                    points[i].circle = c;
-                }
-            }
-
-            // Event handling
-            function addListeners() {
-                if (!('ontouchstart' in window)) {
-                    window.addEventListener('mousemove', mouseMove);
-                }
-                window.addEventListener('scroll', scrollCheck);
-                window.addEventListener('resize', resize);
-            }
-
-            function mouseMove(e) {
-                var posx = posy = 0;
-                if (e.pageX || e.pageY) {
-                    posx = e.pageX;
-                    posy = e.pageY;
-                }
-                else if (e.clientX || e.clientY) {
-                    posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-                    posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-                }
-                target.x = posx;
-                target.y = posy;
-            }
-
-            function scrollCheck() {
-                if (document.body.scrollTop > height) animateHeader = false;
-                else animateHeader = true;
-            }
-
-            function resize() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                largeHeader.style.height = height + 'px';
-                canvas.width = width;
-                canvas.height = height;
-            }
-
-            // animation
-            function initAnimation() {
-                animate();
-                for (var i in points) {
-                    shiftPoint(points[i]);
-                }
-            }
-
-            function animate() {
-                if (animateHeader) {
-                    ctx.clearRect(0, 0, width, height);
-                    for (var i in points) {
-                        // detect points in range
-                        if (Math.abs(getDistance(target, points[i])) < 4000) {
-                            points[i].active = 0.3;
-                            points[i].circle.active = 0.6;
-                        } else if (Math.abs(getDistance(target, points[i])) < 20000) {
-                            points[i].active = 0.1;
-                            points[i].circle.active = 0.3;
-                        } else if (Math.abs(getDistance(target, points[i])) < 40000) {
-                            points[i].active = 0.02;
-                            points[i].circle.active = 0.1;
-                        } else {
-                            points[i].active = 0;
-                            points[i].circle.active = 0;
-                        }
-
-                        drawLines(points[i]);
-                        points[i].circle.draw();
-                    }
-                }
-                requestAnimationFrame(animate);
-            }
-
-            function shiftPoint(p) {
-                TweenLite.to(p, 1 + 1 * Math.random(), {
-                    x: p.originX - 50 + Math.random() * 100,
-                    y: p.originY - 50 + Math.random() * 100, ease: Circ.easeInOut,
-                    onComplete: function () {
-                        shiftPoint(p);
-                    }
-                });
-            }
-
-            // Canvas manipulation
-            function drawLines(p) {
-                if (!p.active) return;
-                for (var i in p.closest) {
-                    ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p.closest[i].x, p.closest[i].y);
-                    ctx.strokeStyle = 'rgba(243,246,244,' + p.active + ')';
-                    ctx.stroke();
-                }
-            }
-
-            function Circle(pos, rad, color) {
-                var _this = this;
-
-                // constructor
-                (function () {
-                    _this.pos = pos || null;
-                    _this.radius = rad || null;
-                    _this.color = color || null;
-                })();
-
-                this.draw = function () {
-                    if (!_this.active) return;
-                    ctx.beginPath();
-                    ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
-                    ctx.fillStyle = 'rgba(243,246,244,' + _this.active + ')';
-                    ctx.fill();
-                };
-            }
-
-            // Util
-            function getDistance(p1, p2) {
-                return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
-            }
-
-        })();
-    </script>
 
     <!-- Animate On Scroll -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -279,12 +83,38 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/materialize.js')}}"></script>
 </body>
+<footer class="page-footer #424242 grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12 center">
+          <img src="{{url_for('static', filename='imgs/peregrinno.png')}}" alt=""
+                        width="200">
+          <p class="grey-text text-lighten-4">"Christo Nihil Præponere"</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text center">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/luanaraujoccr/"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/luan.araujo_ccr/"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/peregrinno"><i class="fa-brands fa-github"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright #424242 grey darken-3">
+      <div class="container">
+      © 2023 Todos os direitos reservado
+      <a class="grey-text text-lighten-4 right" href="#!">pregrinno.dev</a>
+      </div>
+    </div>
+  </footer>
 <script>
     AOS.init();
     M.AutoInit();
     $('.slider').slider(
         {height: 500,}
     );
+
     (function ($) {
         $(function () {
 
@@ -356,6 +186,34 @@
 
         });
     })(jQuery);
+
+    window.onload = function() {
+        var gifs = document.querySelectorAll('.portifolio'); // Seletor dos seus gifs pesados
+        var loader = document.getElementById('loader');
+    
+        // Esconder o loader inicialmente
+        loader.style.display = 'none';
+    
+        var loadedCount = 0;
+    
+        // Contar a quantidade de gifs carregados
+        function onGifLoad() {
+            loadedCount++;
+            if (loadedCount === gifs.length) {
+                // Todos os gifs foram carregados, esconder o loader
+                loader.style.display = 'none';
+            }
+        }
+    
+        // Carregar os gifs em segundo plano
+        for (var i = 0; i < gifs.length; i++) {
+            var gif = new Image();
+            gif.src = gifs[i].src;
+            gif.onload = onGifLoad;
+        }
+    };
+    
+    
 </script>
 
 </html>
