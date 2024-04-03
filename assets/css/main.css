@@ -2950,6 +2950,10 @@ textarea:focus::placeholder {
 06. client
 ******************************************************* 
 *************************************************************** */
+.cd-client-slider{
+  align-items: center !important;
+}
+
 .cd-client {
   padding-top: 40px;
   padding-bottom: 70px;
@@ -2957,7 +2961,7 @@ textarea:focus::placeholder {
 }
 .cd-client-slider-logo {
   padding: 0px 15px;
-  height: 62px;
+  min-width: 150px;
 }
 
 .cd-main-menu-wrap {
